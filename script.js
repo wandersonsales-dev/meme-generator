@@ -45,7 +45,7 @@ function setColor(e) {
   const cor = e.target.style.backgroundColor;
   const image = document.getElementById(idContainerMeme);
   if (image) {
-    image.style.border = `5px double ${cor}`;
+    image.style.border = `3px dashed ${cor}`;
   } else {
     console.log('Não existe uma imagem ainda');
   }
@@ -56,7 +56,7 @@ function createButtonFire() {
   const newButton = document.createElement('button');
   newButton.id = 'fire';
   newButton.innerText = 'Fire';
-  newButton.style.backgroundColor = 'red';
+  newButton.style.backgroundColor = 'rgb(255, 0, 0)';
   newButton.addEventListener('click', setColor);
   parent.appendChild(newButton);
 }
@@ -76,7 +76,7 @@ function createButtonEarth() {
   const newButton = document.createElement('button');
   newButton.id = 'earth';
   newButton.innerText = 'earth';
-  newButton.style.backgroundColor = 'brown';
+  newButton.style.backgroundColor = 'rgb(0, 128, 0)';
   newButton.addEventListener('click', setColor);
   parent.appendChild(newButton);
 }
@@ -84,6 +84,7 @@ function createButtonEarth() {
 function setMeme(e) {
   const meme = document.getElementById('meme-image');
   meme.src = e.target.src;
+  console.log(meme.src);
   const text = document.getElementById('meme-text');
   text.innerText = '';
 }
