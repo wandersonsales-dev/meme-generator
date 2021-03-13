@@ -127,15 +127,3 @@ main {
   color: var(--color-bg-img);
   outline: none;
 }
-
-#fire {
-  background-color: var(--color-fire);
-}
-
-#water {
-  background-color: var(--color-water);
-}
-
-#earth {
-  background-color: var(--color-earth);
-}

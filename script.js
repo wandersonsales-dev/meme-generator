@@ -1,5 +1,6 @@
 const idContainerMeme = 'meme-image-container';
 const idMemeImage = 'meme-image';
+const idControlPanel = 'control-panel';
 
 function addText() {
   const inputText = document.getElementById('text-input');
@@ -25,6 +26,7 @@ function loadImage() {
       const memeContainer = document.getElementById(idContainerMeme);
       const newImg = document.createElement('img');
       newImg.id = idMemeImage;
+      newImg.alt = 'Seu meme está pronto';
       newImg.style.width = '100%';
       newImg.style.height = '100%';
       memeContainer.appendChild(newImg);
@@ -45,21 +47,43 @@ function checkValueImg() {
 }
 
 function setColor(e) {
+  const cor = e.target.style.backgroundColor;
   const image = document.getElementById(idMemeImage);
-  const color = e.target.attributes[1].value;
-  image.style.border = `5px double ${color}`;
+  if (image) {
+    image.style.border = `5px double ${cor}`;
+  } else {
+    console.log('Não existe uma imagem ainda');
+  }
 }
 
-function activeButtons() {
-  const buttonFire = document.getElementById('fire');
-  buttonFire.setAttribute('cor', 'red');
-  buttonFire.addEventListener('click', setColor);
-  const buttonWater = document.getElementById('water');
-  buttonWater.setAttribute('cor', 'blue');
-  buttonWater.addEventListener('click', setColor);
-  const buttonEarth = document.getElementById('earth');
-  buttonEarth.setAttribute('cor', 'brown');
-  buttonEarth.addEventListener('click', setColor);
+function createButtonFire() {
+  const parent = document.getElementById(idControlPanel);
+  const newButton = document.createElement('button');
+  newButton.id = 'fire';
+  newButton.innerText = 'Fire';
+  newButton.style.backgroundColor = 'red';
+  newButton.addEventListener('click', setColor);
+  parent.appendChild(newButton);
+}
+
+function createButtonWater() {
+  const parent = document.getElementById(idControlPanel);
+  const newButton = document.createElement('button');
+  newButton.id = 'water';
+  newButton.innerText = 'water';
+  newButton.style.backgroundColor = 'blue';
+  newButton.addEventListener('click', setColor);
+  parent.appendChild(newButton);
+}
+
+function createButtonEarth() {
+  const parent = document.getElementById(idControlPanel);
+  const newButton = document.createElement('button');
+  newButton.id = 'earth';
+  newButton.innerText = 'earth';
+  newButton.style.backgroundColor = 'brown';
+  newButton.addEventListener('click', setColor);
+  parent.appendChild(newButton);
 }
 
 window.onload = () => {
@@ -67,5 +91,7 @@ window.onload = () => {
   loadImage();
   checkValueImg();
   checkValueInput();
-  activeButtons();
+  createButtonFire();
+  createButtonWater();
+  createButtonEarth();
 };
