@@ -48,7 +48,7 @@ function checkValueImg() {
 
 function setColor(e) {
   const cor = e.target.style.backgroundColor;
-  const image = document.getElementById(idMemeImage);
+  const image = document.getElementById(idContainerMeme);
   if (image) {
     image.style.border = `5px double ${cor}`;
   } else {
