@@ -44,10 +44,12 @@ function checkValueImg() {
 function setColor(e) {
   const cor = e.target.style.backgroundColor;
   const image = document.getElementById(idContainerMeme);
-  if (image) {
+  if (cor === 'red') {
+    image.style.border = `3px dashed ${cor}`;
+  } if (cor === 'blue') {
     image.style.border = `5px double ${cor}`;
-  } else {
-    console.log('Não existe uma imagem ainda');
+  } if (cor === 'green') {
+    image.style.border = `6px groove ${cor}`;
   }
 }
 
