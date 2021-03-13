@@ -22,16 +22,11 @@ function loadImage() {
   const inputImage = document.getElementById('meme-insert');
   inputImage.addEventListener('change', (e) => {
     checkValueInput();
-    if (!document.getElementById(idMemeImage)) {
-      const memeContainer = document.getElementById(idContainerMeme);
-      const newImg = document.createElement('img');
-      newImg.id = idMemeImage;
-      newImg.alt = 'Seu meme está pronto';
-      newImg.style.width = '100%';
-      newImg.style.height = '100%';
-      memeContainer.appendChild(newImg);
-    }
+    const text = document.getElementById('meme-text');
+    text.innerText = '';
     const newImg = document.getElementById(idMemeImage);
+    newImg.style.width = '100%';
+    newImg.style.height = '100%';
     newImg.src = URL.createObjectURL(e.target.files[0]);
     newImg.onload = () => {
       URL.revokeObjectURL(newImg.src);
@@ -86,6 +81,20 @@ function createButtonEarth() {
   parent.appendChild(newButton);
 }
 
+function setMeme(e) {
+  const meme = document.getElementById('meme-image');
+  meme.src = e.target.src;
+  const text = document.getElementById('meme-text');
+  text.innerText = '';
+}
+
+function activeReadyMemes() {
+  const parent = document.querySelector('#readyMemes').children;
+  for (let index = 0; index < parent.length; index += 1) {
+    parent[index].addEventListener('click', setMeme);
+  }
+}
+
 window.onload = () => {
   addText();
   loadImage();
@@ -94,4 +103,5 @@ window.onload = () => {
   createButtonFire();
   createButtonWater();
   createButtonEarth();
+  activeReadyMemes();
 };
