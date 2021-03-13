@@ -25,10 +25,9 @@ function loadImage() {
       const memeContainer = document.getElementById(idContainerMeme);
       const newImg = document.createElement('img');
       newImg.id = idMemeImage;
-      newImg.style.maxWidth = '100%';
-      newImg.style.maxHeight = '100%';
+      newImg.style.width = '100%';
+      newImg.style.height = '100%';
       memeContainer.appendChild(newImg);
-      memeContainer.style.height = newImg.style.width;
     }
     const newImg = document.getElementById(idMemeImage);
     newImg.src = URL.createObjectURL(e.target.files[0]);
