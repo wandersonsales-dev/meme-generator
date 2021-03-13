@@ -16,6 +16,12 @@
 
   --color-border-img: black;
 
+  --color-fire: red;
+
+  --color-water: blue;
+
+  --color-earth: brown;
+
 }
 
 * {
@@ -100,4 +106,36 @@ main {
   color: var(--color-bg-img);
   text-align: center;
   text-shadow: 5px 5px 5px black;
+}
+
+#control-panel {
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#control-panel button {
+  width: 70px;
+  height: 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-bg-img);
+  outline: none;
+}
+
+#fire {
+  background-color: var(--color-fire);
+}
+
+#water {
+  background-color: var(--color-water);
+}
+
+#earth {
+  background-color: var(--color-earth);
 }

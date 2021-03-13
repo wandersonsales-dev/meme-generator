@@ -44,9 +44,28 @@ function checkValueImg() {
   }
 }
 
+function setColor(e) {
+  const image = document.getElementById(idMemeImage);
+  const color = e.target.attributes[1].value;
+  image.style.border = `5px double ${color}`;
+}
+
+function activeButtons() {
+  const buttonFire = document.getElementById('fire');
+  buttonFire.setAttribute('cor', 'red');
+  buttonFire.addEventListener('click', setColor);
+  const buttonWater = document.getElementById('water');
+  buttonWater.setAttribute('cor', 'blue');
+  buttonWater.addEventListener('click', setColor);
+  const buttonEarth = document.getElementById('earth');
+  buttonEarth.setAttribute('cor', 'brown');
+  buttonEarth.addEventListener('click', setColor);
+}
+
 window.onload = () => {
   addText();
   loadImage();
   checkValueImg();
   checkValueInput();
+  activeButtons();
 };
